@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <title>{{ title }} | SimpleForum</title>
+  </head>
+  <body>
+    <div class="header" id='header'>
+      <a href="/"><img src="/favicon.png" width="64px"></a>
+      <h1><a href="/">SimpleForum</a></h1>
+      {% if session['logged_in'] %}
+      <h3>Hello {{ session['username'] }}!</h3>
+      <a href='/s/logout' class="account_button">Log Out</a>
+      {% else %}
+      <a href='/s/login' class="account_button">Login</a>
+      <a href='/s/signup' class="account_button">Sign Up</a>
+      {% endif %}
+    </div>
+    <div class='login_main'>
+      <h1>{{ title }}</h1>
+      <form action='postcredentials' method='post'>
+        <input type="text" name="username" placeholder="Username">
+        {{ emailyn|safe }}
+        <input type="password" name="password" placeholder="Password">
+        <input type="hidden" name="auth_type" value="{{ auth_type }}">
+        <input id="redirect" type='hidden' name="redirect" value="/">
+        <script>
+          document.getElementById("redirect").value = document.referrer;
+        </script>
+        <input type="submit" id='submit' value="{{ title }}">
+      </div>
+  </body>
+  </html>

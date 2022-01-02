@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>SimpleForum</title>
+  </head>
+  <body class="landing">
+    <div class="header" id='header'>
+      <a href="/"><img src="/favicon.png" width="64px"></a>
+      <h1><a href="/">SimpleForum</a></h1>
+      {% if session['logged_in'] %}
+      <h3>Hello {{ session['username'] }}!</h3>
+      <a href='/s/logout' class="account_button">Log Out</a>
+      {% else %}
+      <a href='/s/login' class="account_button">Login</a>
+      <a href='/s/signup' class="account_button">Sign Up</a>
+      {% endif %}
+    </div>
+    <div class="blank">
+    </div>
+    <div class="catchphrase">
+      <h1>Simply a place to chat.</h1>
+    </div>
+    <div class="forumsearch">
+      <input type="text" id="searchbar" placeholder="Enter forum name"/>
+      <button id="gobtn">Go</button>
+
+
+      <script type="text/javascript">
+        document.getElementById("gobtn").addEventListener("click", function(){
+            var forum = document.getElementById("searchbar").value;
+
+            window.location.href = 'https://simpleforum.jvadair.com/' + forum;
+        });
+      </script>
+
+      <script type="text/javascript">
+        $("#searchbar").keyup(function(event) {
+          if (event.keyCode === 13) {
+              $("#gobtn").click();
+          }
+        });
+      </script>
+
+
+    </div>
+    <div class="features">
+      <h2>With a few simple features...</h2>
+      <div class="impersonation_protection">
+        <h3>Impersonation Protection</h3>
+        <p>When we added our login system, we did so in order to create a less annoying platform. One where your identity couldn't be stolen by some random person. This was the sole reasoning behind it. If you see a user with a name that looks like <b><span style="color: #f56f42">this</span></b>, they are using the platform as a guest. This means that the name they are using is not owned by them. Making an account is painless and takes less than a minute!</p>
+      </div>
+      <div class="lively_messages">
+        <h3>Lively messages!</h3>
+        <p>Due to the way messages are stored, users used to be able to write html (and even javascript) into their messages. Due to this being a <b>MASSIVE SECURITY FLAW</b>, we implemented a new system which aimed to give users access to these same features without, you know, breaking everything for everyone.</p>
+        <h5>Formatting reference:</h5>
+        <div class="block_reference">
+          <span>
+            <p>b[text]</p>
+            <p><b>Result</b></p>
+          </span>
+          <span>
+            <p>i[text]</p>
+            <p><i>Result</i></p>
+          </span>
+          <span>
+            <p>c[color, text]</p>
+            <p style="color: red">Result</p>
+          </span>
+          <span>
+            <p>l[text]</p>
+            <p style="font-size: 150%">Result</p>
+          </span>
+          <span>
+            <p>p[url]</p>
+            <p>[Image appears here]</p>
+          </span>
+        </div>
+        <p>By the way, links automatically hyperlink. You're welcome!</p>
+      </div>
+      <div class="about_email">
+        <h3>Email notifications for forums</h3>
+        <p>This one is really simple. Just click the "enable emails" button on any forum. The process is the same to disable it too!</p>
+      </div>
+      <div class="about_badges">
+        <h3>Badges</h3>
+        <p>There are a few badges you can earn through various means, which are displayed below.</p>
+        <div class="badge_gallery">
+          <div>
+            <img src="https://simpleforum.jvadair.com/badge/verified.png" height="128px">
+            <h5>Verified</h5>
+          </div>
+          <div>
+            <img src="https://simpleforum.jvadair.com/badge/developer.png" height="128px">
+            <h5>Developer</h5>
+          </div>
+          <div>
+            <img src="https://simpleforum.jvadair.com/badge/exemplary.png" height="128px">
+            <h5>Exemplary</h5>
+          </div>
+          <div>
+            <img src="https://simpleforum.jvadair.com/badge/early.png" height="128px">
+            <h5>Early Member</h5>
+          </div>
+        </div>
+      </div>
+      <div class="about_updates">
+        <h3>Updates</h3>
+        <p>Wanna hear about new neat stuff as we create it? (and also other important updates?) Enable emails for our <a href="updates" style="color:#34eb80">updates</a> channel, an official developer-only channel (no spam!).</p>
+      </div>
+    </div>
+    <div class="credits">
+      <p>SimpleForum © jvadair 2021</p>
+    </div>
+    <script>
+      window.onscroll = function() {makeSticky()};
+
+      var header = document.getElementById("header");
+      var sticky = header.offsetTop;
+
+      function makeSticky() {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      }
+</script>
+  </body>
+</html>

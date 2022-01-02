@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <title>{{ title }} | SimpleForum</title>
+  </head>
+  <body>
+    <div class="header" id='header'>
+      <a href="/"><img src="/favicon.png" width="64px"></a>
+      <h1><a href="/">SimpleForum</a></h1>
+      {% if session['logged_in'] %}
+      <h3>Hello {{ session['username'] }}!</h3>
+      <a href='/s/logout' class="account_button">Log Out</a>
+      {% else %}
+      <a href='/s/login' class="account_button">Login</a>
+      <a href='/s/signup' class="account_button">Sign Up</a>
+      {% endif %}
+    </div>
+    <div class='existing'>
+      {{ content|safe }}
+    </div>
+    <div class="write">
+      <h5>{{ title }}</h5>
+      <form class="writer" action="./postapi" method="post">
+        {% if not session['logged_in'] %}
+        <input type="text" name="author" placeholder="Name" value='{{ session["author"] }}'>
+        {% endif %}
+        <input type="text" name="message" placeholder="Thoughts" id='messagebox'>
+        <input id='submit' type="submit" value="Post">
+      </form>
+      <a href="view" class='refreshbutton'>Refresh</a>
+      {% if email_notifs == 'not_logged_in' %}
+      {% elif email_notifs %}
+      <a href="mail_toggle" class='mail_toggle_enabled'>Disable emails</a>
+      {% else %}
+      <a href="mail_toggle" class='mail_toggle_disabled'>Enable emails</a>
+      {% endif %}
+    </div>
+    <div class="credits">
+      <p>SimpleForum © jvadair 2021</p>
+    </div>
+    <script>
+    window.scrollTo(0,document.body.scrollHeight);
+    </script>
+    <script>
+      window.onscroll = function() {makeSticky()};
+
+      var header = document.getElementById("header");
+      var sticky = header.offsetTop;
+
+      function makeSticky() {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      }
+</script>
+  </body>
+</html>
