@@ -54,3 +54,5 @@ For updates/news visit the [updates forum page](https://simpleforum.jvadair.com/
 - Pages used to test/play with certain functions before using them (/ts/<test>)
 ## Disclaimers
 I used an online email generator to create the email templates. Shame on me.
+  
+![Logo](https://repository-images.githubusercontent.com/443896122/76b7714d-7a03-4ae1-8e22-1fdc4b438c67)
