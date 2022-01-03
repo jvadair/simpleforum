@@ -40,6 +40,8 @@ In all reality this was created as more of a fun project in which I attempted to
 
 #### Is the source up-to-date with the site?
 The answer is most likely **no.** This wasn't created to be a self-hosted server, and updates are created separately and uploaded periodically.
+## What's planned
+I've written a few ideas into the TODO line at the top of the main.py file. Feel free to leave feedback!
 ## Site updates
 For updates/news visit the [updates forum page](https://simpleforum.jvadair.com/updates/view) - a moderator only page (no spam here!)
 ## What hasn't been uploaded:
