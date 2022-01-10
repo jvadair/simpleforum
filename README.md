@@ -36,7 +36,7 @@ Read your question again.
 
 SimpleForum has several interesting features and a small mostly unmoderated community. It also benefits from security through obscurity - it will be hard for others to find a forum if you give it a really long name...
 
-In all reality this was created as more of a fun project in which I attempted to make a web chat/forum.
+In all reality this was created as part of a school English project in which I attempted to make a web chat/forum to tie into my main idea. It has continued to evolve since, eventually becoming a way for me to test and develop new skills.
 
 #### Is the source up-to-date with the site?
 The answer is most likely **no.** This wasn't created to be a self-hosted server, and updates are created separately and uploaded periodically.
